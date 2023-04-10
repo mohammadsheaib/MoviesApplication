@@ -1,0 +1,12 @@
+:host {
+    display: block;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.movie-details-container {
+    height: 70%;
+    max-height: 90vh;
+}

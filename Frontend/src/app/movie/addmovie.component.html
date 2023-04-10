@@ -1,0 +1,37 @@
+<mat-dialog-content>
+  <h2 mat-dialog-title>New Movie</h2>
+  <form #movieForm="ngForm">
+    <mat-form-field>
+      <mat-label>Title</mat-label>
+      <input matInput name="title" [(ngModel)]="newMovie.title" required>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Original Language</mat-label>
+      <input matInput name="original_language" [(ngModel)]="newMovie.original_language" required>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Release Date</mat-label>
+      <input matInput type="date" name="release_date" [(ngModel)]="newMovie.release_date" required>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Popularity</mat-label>
+      <input matInput type="number" name="popularity" [(ngModel)]="newMovie.popularity" required>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Vote Average</mat-label>
+      <input matInput type="number" name="vote_average" [(ngModel)]="newMovie.vote_average" required>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Overview</mat-label>
+      <textarea matInput rows="3" name="overview" [(ngModel)]="newMovie.overview" required></textarea>
+    </mat-form-field>
+  </form>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+  <button mat-raised-button color="primary" [disabled]="!movieForm.valid || isLoading" (click)="saveMovie()">
+    <span *ngIf="!isLoading">Save</span>
+    <mat-spinner *ngIf="isLoading" diameter="20" color="accent"></mat-spinner>
+  </button>
+  <button mat-button mat-dialog-close>Cancel</button>
+</mat-dialog-actions>
